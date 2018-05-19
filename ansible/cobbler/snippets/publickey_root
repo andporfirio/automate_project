@@ -1,0 +1,11 @@
+# Install CobblerServer's(10.47.58.2) public key for root user
+cd /root
+mkdir --mode=700 .ssh
+cat >> .ssh/authorized_keys << "PUBLIC_KEY"
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTC1lv5a/Vqedx83bLFD945gwShlk+KH1ATwFzYjsZPGVyugdjg7Q7cP2SE5Vv2r5AjDDjEkxx+XyPJPmYy/czulJQGceVTFz0GHUNoudy16+QyvEBfi5Tmv6xivR0Y+nNSwq1uUNNTezx1mMIlUWaKrMHQHA38alIvj3oz6wCV+AzkkxoWtEUiETT3VdKddAI3JbOE9/0koZ5tD46jemPjBITPuPtYAKgS2TaZHbv7O/slIblKF3WczYFUU01qN1K8T4zxyXxG9qX1X0xaPPir/hJHNY0TDh9hFlPaQhAVpYEq809RZdpAsl2PTrA0BEe+pQ81vxtx2R1zHCPiCSj root@srv-mgmt01.porfirio.local
+PUBLIC_KEY
+chmod 600 .ssh/authorized_keys
+cat >> .ssh/config <<EOF
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+EOF
